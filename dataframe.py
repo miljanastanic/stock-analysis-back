@@ -6,8 +6,6 @@ import seaborn as sns
 import yfinance as yf
 from datetime import datetime
 
-
-
 sns.set_style('whitegrid')
 plt.style.use("fivethirtyeight")
 
@@ -27,27 +25,31 @@ company_name = ["APPLE", "GOOGLE", "MICROSOFT", "AMAZON"]
 for company, com_name in zip(company_list, company_name):
     company["company_name"] = com_name
 
-
 df = pd.concat(company_list, axis=0)
-#df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
-
-# Grab all the closing prices for the tech stock list into one DataFrame
-
 
 closing_df = pdr.get_data_yahoo(tech_list, start=start, end=end)['Adj Close']
 
-# Make a new tech returns DataFrame
+
 tech_rets = closing_df.pct_change()
 tech_rets.head()
 
 def get_data_frame():
-    return df
+    dict = []
+    i=1
+    for index, row in df.iterrows():
+        dict1 = {}
+        dict1['id'] = i
+        dict1['date'] = str(index)
+        for c, v in row.items():
+            s = str(c).lower()
+            dict1[s] = v
+        dict.append(dict1)
+        i+=1
+    return dict
 
 
 def descriptive_historical_cv():
-    #a historical view of the closing price
-
-    plt.figure(figsize=(15, 10))
+    plt.figure(figsize=(15, 10), facecolor='white')
     plt.subplots_adjust(top=1.25, bottom=1.2)
 
     for i, company in enumerate(company_list, 1):
@@ -64,8 +66,7 @@ def descriptive_historical_cv():
 
 
 def descriptive_historical_vos():
-    # Now let's plot the total volume of stock being traded each day
-    plt.figure(figsize=(15, 10))
+    plt.figure(figsize=(15, 10), facecolor='white')
     plt.subplots_adjust(top=1.25, bottom=1.2)
 
     for i, company in enumerate(company_list, 1):
@@ -119,7 +120,6 @@ def daily_returns():
     for company in company_list:
         company['Daily Return'] = company['Adj Close'].pct_change()
 
-    # Then we'll plot the daily return percentage
     fig, axes = plt.subplots(nrows=2, ncols=2)
     fig.set_figheight(10)
     fig.set_figwidth(15)
@@ -143,7 +143,7 @@ def daily_returns():
 
 
 def avg_daily_returns():
-    plt.figure(figsize=(12, 9))
+    plt.figure(figsize=(12, 9), facecolor='white')
 
     for i, company in enumerate(company_list, 1):
         plt.subplot(2, 2, i)
@@ -160,7 +160,7 @@ def avg_daily_returns():
 
 def correlation():
 
-    plt.figure(figsize=(12, 10))
+    plt.figure(figsize=(12, 10), facecolor='white')
 
     plt.subplot(2, 2, 1)
     sns.heatmap(tech_rets.corr(), annot=True, cmap='summer')
@@ -180,7 +180,7 @@ def risk():
 
     area = np.pi * 20
 
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(10, 8), facecolor='white')
     plt.scatter(rets.mean(), rets.std(), s=area)
     plt.xlabel('Expected return')
     plt.ylabel('Risk')

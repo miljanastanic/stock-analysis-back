@@ -1,6 +1,7 @@
 from pickle import GET
 
 from flask import Flask, request
+from flask_cors import CORS
 
 import dataframe
 import predicting
@@ -10,24 +11,12 @@ from flask import send_file
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/data', methods=['GET'])
 def my_data():  # put application's code here
-    df = dataframe.get_data_frame()
-    dict = []
-    for index, row in df.iterrows():
-        # print('index: ', index)
-        # print('row: ', row)
-        dict1 = {}
-        dict1['date'] = str(index)
-        for c, v in row.items():
-            # print('columnName', c)
-            # print('value', v)
-            s = str(c).lower()
-            dict1[s] = v
-
-        dict.append(dict1)
+    dict = dataframe.get_data_frame()
     JSONP_data = jsonify(dict)
     return JSONP_data
 
@@ -90,7 +79,7 @@ def model():
 with app.test_request_context():
     df = dataframe.get_data_frame()
 
-    #print(tabulate(df, headers='keys'))
+    print(tabulate(df, headers='keys'))
 
 if __name__ == '__main__':
     app.run()
