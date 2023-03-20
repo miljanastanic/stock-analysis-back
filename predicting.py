@@ -9,7 +9,7 @@ import tensorflow
 
 
 def predict(code):
-    print(code)
+    code = code.strip("'")
 
     df = pdr.get_data_yahoo(code, start='2012-01-01', end=datetime.now())
 

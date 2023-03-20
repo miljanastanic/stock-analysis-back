@@ -1,0 +1,155 @@
+{
+    "blogs": [
+      {
+        "title": "Python",
+        "body": "The language which was used for developing backend part od project is Python, especially for web development, machine and deep learning. Python was a choice for web development because of its ease of use, readability, and large collection of powerful libraries and frameworks like Flask. Also for the same reason is chosen for the machine learning part of the project. Python's simplicity, flexibility, large community support, and powerful libraries and frameworks make it an ideal language for deep and machine learning. ",
+        "project": "Backend",
+        "id": 1
+      },
+      {
+        "title": "Libraries",
+        "body": "Python libraries are essential for programming in Python because they provide pre-written code that can be easily integrated into your own projects. This saves you time and effort, as you don't have to write code from scratch every time you want to perform a specific task. The libraries which was used for this project are: Numpy, Pandas, Keras, Matplotlib, Flask, Pandas, Yfinance, Seaborn and other libraries as a helper for writting a better code.",
+        "project": "Backend",
+        "id": 2
+      },
+      {
+        "title": "Flask",
+        "body": "Flask is a lightweight web framework for Python that is used to build web applications and APIs. It is designed to be simple, flexible, and easy to learn. The key features of flask are: Routing, Tamplates, Request handling, Sessions, Extensions, Debbuging and Testing. In this project the focus was on request and response handling, the communication with client. When a client makes a request to a Flask application, Flask creates a request object that contains all the information about the request, such as the URL, headers, and request data (if any). The request object is then passed to the view function that corresponds to the requested URL. The view function processes the request and returns a response object that contains the data that should be sent back to the client. The response object can include headers, cookies, and the response data itself.",
+        "project": "Backend",
+        "id": 3
+      },
+      {
+        "title": "Cors",
+        "body": "Before it was decided that the app should be build up in a Docker container, for the development fase of the project we used Flask-CORS for allowing the easily handle Cross-Origin Resource Sharing (CORS). The point was to allow only the http://localhost:3000 origin to access the /api/data endpoint. So, to sum up. CORS is a security feature that prevents web pages from making requests to a different domain than the one that served the web page. With Flask-CORS, you can specify which origins are allowed to access your application, which HTTP methods are allowed, and what headers are allowed in requests and responses. ",
+        "project": "Backend",
+        "id": 4
+      },
+      {
+        "title": "Yfinance",
+        "body": "Yfinance is a Python library that provides an easy-to-use interface to access financial data from Yahoo Finance. It allows users to download historical market data, real-time market data, and financial statements for companies listed on major stock exchanges. With yfinance, historical data was retrived for a specific stock or index, including opening and closing prices, volume, and other key metrics. In this project, we used the yf.download() function to retrieve historical market data for Apple, Microsoft, Google and Amazon stock (ticker symbol 'AAPL') from specific dates. It returned columns like: date, high, low, open, close, adj close, volume and company name.",
+        "project": "Backend",
+        "id": 5
+      },
+      {
+        "title": "Pandas",
+        "body": "Pandas is a Python library that provides fast, flexible, and easy-to-use data structures for data analysis and manipulation. It is built on top of the NumPy library and provides a powerful set of tools for working with structured data, including data cleaning, transformation, aggregation, and visualization. Some of the key features of Pandas include. DataFrame and Series data structures for working with structured data (in this project DataFrame structure was used). Then, tools for merging and joining datasets. Built-in support for handling missing data. Easy integration with other Python libraries for data analysis and visualization, such as NumPy, Matplotlib, and Seaborn.",
+        "project": "Backend",
+        "id": 6
+      },
+      {
+        "title": "Matplotlib",
+        "body": "Matplotlib is a Python library for creating static, animated, and interactive visualizations in Python. It provides a wide range of plotting functions and customization options for creating publication-quality graphics, including line plots, scatter plots, bar charts, histograms, and more. So, this mentioned plots were the ones that were shared to the client thru response as a png file.",
+        "project": "Backend",
+        "id": 7
+      },
+      {
+        "title": "Seaborn",
+        "body": "Seaborn is a Python library built on top of Matplotlib that provides a high-level interface for creating statistical visualizations. It provides a number of functions and tools for working with complex data structures, including data frames and multi-dimensional arrays, and is particularly useful for creating visualizations that require complex statistical analysis, such as regression plots, heatmaps, and cluster maps.",
+        "project": "Backend",
+        "id": 8
+      },
+      {
+        "title": "Keras",
+        "body": "Keras is a high-level neural networks API written in Python that runs on top of lower-level machine learning frameworks such as TensorFlow, Theano, or CNTK. It was developed with the goal of making deep learning more accessible to developers and researchers, by providing a user-friendly and intuitive interface for building and training neural networks. Keras provides a modular and extensible API for building a wide range of neural network architectures, including convolutional networks, recurrent networks, and multi-layer perceptrons. It also includes a number of pre-trained models that can be easily used for tasks such as image classification, object detection, and text generation.",
+        "project": "Backend",
+        "id": 9
+      },
+      {
+        "title": "Predictor",
+        "body": "The model was written to predict the stock prices of a given company-name using Long Short-Term Memory (LSTM) neural networks. LSTMs have been widely used in many applications, including speech recognition, handwriting recognition, machine translation, and image captioning. They have shown to achieve state-of-the-art performance in many NLP tasks, and their effectiveness has led to the development of many variants. So to predict the stock prices, we downloaded the data from Yahoo finance. Then we ploted the closing prices of the stock in graph. Scaled the dataset to a range between 0 and 1 using the MinMaxScaler from the scikit-learn library. Created he training data by slicing the scaled dataset into input sequences of 60 and corresponding output values. Created an LSTM model with two layers of LSTM and two layers of Dense. Compiled the model with an Adam optimizer and mean squared error loss function. Trained the model on the dataeset with 1 epoch so it could be faster to get an response. Predicted the stock prices using the trained model on the test data. Ploted plots the training and validation data along with the predicted stock prices in a graph and send it to client.",
+        "project": "Backend",
+        "id": 10
+      },
+      {
+        "title": "React",
+        "body": " For building a user interface we used, React, an open-source JavaScript library for building user interfaces.  It was developed by Facebook and is widely used in web development. React is a component-based library, which means that it allows developers to build reusable UI components and compose them together to create complex UIs. One of the key features of React is its use of a virtual DOM (Document Object Model). The virtual DOM is a lightweight representation of the actual DOM, which allows React to update the UI efficiently by only updating the parts of the UI that have changed. React has a large and active community, with many third-party libraries and tools available to make development easier and faster. React is often used in combination with other technologies such as Redux for state management and React Native for building mobile applications.",
+        "project": "Frontend",
+        "id": 11
+      },
+      {
+        "title": "Bootstrap",
+        "body": "Bootstrap is an open-source front-end web development framework. It provides a set of pre-designed and pre-built HTML, CSS, and JavaScript components that can be easily incorporated into web pages and applications. Bootstrap is designed to be responsive, meaning that it automatically adjusts the layout and sizing of components based on the screen size and device type. This makes it easy to create websites that look great on both desktop and mobile devices. It allows for rapid prototyping and development of websites and applications, and its extensive documentation and community support make it easy to learn and use.",
+        "project": "Frontend",
+        "id": 12
+      },
+      {
+        "title": "JavaScript",
+        "body": "JavaScript is a high-level, interpreted programming language that is used primarily to add interactivity and dynamic behavior to websites. This was the language which was chosen for this app. JavaScript is a client-side scripting language, which means that it is executed by web browsers on the client-side (i.e., on the user's computer). It is used to add functionality to web pages, such as form validation, animations, and dynamic content updates. JavaScript is also used for server-side programming through platforms like Node.js, which allows developers to use JavaScript on the server-side and build web applications using a single language on both the client and server.",
+        "project": "Frontend",
+        "id": 13
+      },
+      {
+        "title": "Docker",
+        "body": "Docker is a platform for developing, packaging, and deploying applications in containers. Containers are a lightweight, portable, and self-contained environment that allows developers to easily package their application along with its dependencies into a single unit. Docker provides a set of tools and APIs for building, deploying, and managing containers. With Docker, developers can create a container that includes all the required dependencies and libraries for their application, and then deploy it on any platform that supports Docker. We used it to deploy this project. Deploying a React frontend and Python backend application in Docker involved creating separate Docker containers for each component and then linking them together using a Docker network. This was managed by creating a Dokerfile for each project. Then building a docker images by using command docker build. Creating a docker network to link the containers together. Starting the containers for each project by using docker run. And then deploying it.",
+        "project": "Production",
+        "id": 14
+      },
+      {
+        "title": "Stock market",
+        "body": "The stock market refers to the collection of markets and exchanges where shares of publicly traded companies are bought and sold by investors. It is a system where buyers and sellers can come together to trade securities, such as stocks, bonds, and derivatives. The stock market allows companies to raise capital by issuing shares of stock to the public, which can be bought by investors looking to invest in those companies. The stock market is an important part of the economy as it provides a way for companies to raise capital to grow their businesses, while also giving investors a way to invest in those companies and potentially earn a return on their investment. The stock market also serves as an important barometer of the overall health of the economy, as stock prices and trading volumes can be influenced by a wide range of economic and political factors.",
+        "project": "Financal term",
+        "id": 15
+      },
+      {
+        "title": "Open",
+        "body": "In the context of the stock market, open refers to the first trading price of a particular stock at the beginning of a trading day. It is the price at which the stock is first traded when the market opens for the day.",
+        "project": "Financal term",
+        "id": 16
+      },
+      {
+        "title": "High",
+        "body": "In the context of the stock market, high refers to the highest price at which a particular stock was traded during a given trading day or other specified time period, such as a week or a month.",
+        "project": "Financal term",
+        "id": 17
+      },
+      {
+        "title": "Low",
+        "body": "In the context of the stock market, low refers to the lowest price at which a particular stock was traded during a given trading day or other specified time period, such as a week or a month.",
+        "project": "Financal term",
+        "id": 18
+      },
+      {
+        "title": "Close",
+        "body": "In the context of the stock market, close refers to the final trading price of a particular stock at the end of a trading day. It is the last price at which a stock is traded before the market closes for the day. The close price can be influenced by a number of factors, including market trends, company news and announcements, economic data, and geopolitical events. Traders and investors use close prices to evaluate the performance of individual stocks, as well as broader market trends and economic conditions.",
+        "project": "Financal term",
+        "id": 19
+      },
+      {
+        "title": "Adj Close",
+        "body": "Adj Close stands for Adjusted Close and is a financial term used in the stock market to describe the closing price of a stock after accounting for any corporate actions that may have affected the stock's price, such as stock splits, dividends, or other distributions. The adjusted close price is calculated by taking the closing price of a stock and adjusting it for any changes to the stock's price due to corporate actions. This provides a more accurate representation of the stock's performance over time, as it takes into account any changes to the stock's price that were not directly related to market forces.",
+        "project": "Financal term",
+        "id": 20
+      },
+      {
+        "title": "Volume",
+        "body": "In the context of the stock market, volume refers to the total number of shares of a particular stock that have been traded during a given period of time, such as a day, a week, or a month. Volume is typically reported in units of shares traded, with each share representing a portion of ownership in the company. For example, if 1 million shares of a particular stock were traded during a day, the volume for that day would be reported as 1 million shares.",
+        "project": "Financal term",
+        "id": 21
+      },
+      {
+        "title": "Closing price",
+        "body": "The closing price is the last price at which the stock is traded during the regular trading day. A stock’s closing price is the standard benchmark used by investors to track its performance over time.",
+        "project": "Financal term",
+        "id": 22
+      },
+      {
+        "title": "Volume of Sales",
+        "body": "Volume is the amount of an asset or security that changes hands over some period of time, often over the course of a day. For instance, the stock trading volume would refer to the number of shares of security traded between its daily open and close. Trading volume, and changes to volume over the course of time, are important inputs for technical traders.",
+        "project": "Financal term",
+        "id": 22
+      },
+      {
+        "title": "Moving average",
+        "body": "The moving average (MA) is a simple technical analysis tool that smooths out price data by creating a constantly updated average price. The average is taken over a specific period of time, like 10 days, 20 minutes, 30 weeks, or any time period the trader chooses. ",
+        "project": "Financal term",
+        "id": 23
+      },
+      {
+        "title": "Daily return of the stock average",
+        "body": "In order to analyze the risk of the stock, we'll need to take a closer look at the daily changes of the stock, and not just its absolute value. To do so we used a pandas to retrieve teh daily returns for the stock.",
+        "project": "Financal term",
+        "id": 24
+      }
+    ]
+
+  }

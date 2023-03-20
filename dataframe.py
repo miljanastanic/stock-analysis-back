@@ -34,9 +34,10 @@ tech_rets = closing_df.pct_change()
 tech_rets.head()
 
 def get_data_frame():
+    df1 = df.round(2)
     dict = []
     i=1
-    for index, row in df.iterrows():
+    for index, row in df1.iterrows():
         dict1 = {}
         dict1['id'] = i
         dict1['date'] = str(index)

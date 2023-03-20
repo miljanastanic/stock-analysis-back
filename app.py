@@ -1,3 +1,4 @@
+import json
 from pickle import GET
 
 from flask import Flask, request
@@ -8,6 +9,7 @@ import predicting
 from tabulate import tabulate
 from flask import jsonify
 from flask import send_file
+import os
 
 
 app = Flask(__name__)
@@ -72,8 +74,28 @@ def risk():
 def model():
     # http://127.0.0.1:5000/model?code='AMZN'
     code = request.args.get('code', None)
-    file = predicting.predict(code)
+    print(code)
+    file = predicting.predict(str(code))
     return send_file(file)
+
+
+@app.route('/docs', methods=['GET'])
+def get_docs():
+    file_path = os.path.join(os.path.dirname(__file__), 'docs.json')
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
+
+@app.route('/docs/<int:id>', methods=['GET'])
+def get_doc(id):
+    file_path = os.path.join(os.path.dirname(__file__), 'docs.json')
+    with open(file_path, 'r') as f:
+        data = json.load(f)
+    for obj in data['blogs']:
+        if obj['id'] == int(id):
+            return jsonify(obj)
+    return jsonify({'error' : 'Object not found'})
 
 
 with app.test_request_context():
@@ -82,5 +104,5 @@ with app.test_request_context():
     print(tabulate(df, headers='keys'))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
